@@ -14,6 +14,7 @@ struct ContentView: View {
                 .imageScale(.large)
                 .foregroundStyle(.tint)
             Text("Hello, world, aquest és el primer commit amb un canvi al text!")
+                .font(.largeTitle) //he modificat el tamany del text per fer prova de commit
         }
         .padding()
     }
