@@ -8,12 +8,25 @@
 import SwiftUI
 
 struct ContentView: View {
+    @Environment(TrackStore.self) private var trackStore
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world, aquest és el primer commit amb un canvi al text!")
+            switch(trackStore.state){
+                case .idle:
+                    Button("Get data cambio test"){
+                        trackStore.getDataFromAPI()
+                    }
+                
+                case .loading:
+                    ProgressView()
+                case .loaded(let tracks):
+                List(tracks){track in
+                    Text("\(track.trackName)")
+                }
+                case .error(let errorMessage):
+                    Text(errorMessage)
+            }
+            
         }
         .padding()
     }
@@ -21,4 +34,6 @@ struct ContentView: View {
 
 #Preview {
     ContentView()
+        .environment(TrackStore())
 }
+
