@@ -16,6 +16,7 @@ struct ContentView: View {
                     Button("Get data cambio test"){
                         trackStore.getDataFromAPI()
                     }
+                    .buttonStyle(PlainButtonStyle())
                 
                 case .loading:
                     ProgressView()
