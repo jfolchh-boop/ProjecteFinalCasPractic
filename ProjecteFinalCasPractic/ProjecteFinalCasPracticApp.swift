@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct ProjecteFinalCasPracticApp: App {
+    @State private var trackStore = TrackStore()
+
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environment(trackStore)
         }
     }
 }
