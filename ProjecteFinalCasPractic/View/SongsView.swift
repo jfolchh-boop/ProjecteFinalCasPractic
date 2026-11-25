@@ -21,7 +21,19 @@ struct SongsView: View {
                 ProgressView()
             case .loaded(let songs):
                 List(songs){song in
-                    Text(song.trackName)
+                    HStack {
+                        AsyncImage(url: URL(string: song.artworkUrl!)) //falta gestionar les tres fases i controlar correctament l'optional amb optional binging
+                        VStack {
+                            //apareix centrat. s'ha de formatar correctament.
+                            Text(song.trackName)
+                            Text(song.artistName)
+                            if let album=song.collectionName {
+                                Text(album)
+                            }else {
+                                Text("No album")
+                            }
+                        }
+                    }
                 }
             case .error(let errorMessage):
                 Text(errorMessage)
@@ -33,5 +45,5 @@ struct SongsView: View {
 }
 
 #Preview {
-    SongsView()
+    SongsView().environment(SongStore())
 }
