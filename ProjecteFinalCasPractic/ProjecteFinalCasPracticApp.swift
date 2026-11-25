@@ -9,12 +9,14 @@ import SwiftUI
 
 @main
 struct ProjecteFinalCasPracticApp: App {
-    @State private var trackStore = TrackStore()
+    @State private var songStore = SongStore()
+    @State private var videoStore = VideoStore()
 
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .environment(trackStore)
+                .environment(songStore)
+                .environment(videoStore)
         }
     }
 }

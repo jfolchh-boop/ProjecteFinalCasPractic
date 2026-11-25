@@ -1,17 +1,17 @@
 //
-//  TrackStore.swift
+//  VideoStore.swift
 //  ProjecteFinalCasPractic
 //
-//  Created by Josep Folch on 24/11/26.
+//  Created by Laia (user306329) on 11/25/26.
 //
 
 import Observation
 import Foundation
 
 @Observable
-class TrackStore{
+class VideoStore{
     private(set) var state = APIState.idle
-    func getDataFromAPI(){
+    /*func getDataFromAPI(){
         state = APIState.loading
         Task{
             do{
@@ -22,5 +22,5 @@ class TrackStore{
             }
         }
         
-    }
+    }*/
 }

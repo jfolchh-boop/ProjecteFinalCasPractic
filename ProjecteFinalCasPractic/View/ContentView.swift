@@ -7,27 +7,40 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    
     var body: some View {
-        //utilitzem tabviews per separar pestanyes i dins de cadascuna posarem el navigationstack, com a la practica de "libros"
         TabView {
+            //Text("Pantalla principal")
             NavigationStack {
-                TrackView()
-                    .navigationTitle("Tracks")
+                SongsView()
+                    .navigationTitle("Songs")
+                    .navigationBarTitleDisplayMode(.inline)
             }
             .tabItem {
-                //escollim una imatge classica de cançó
-                Label("Tracks", systemImage: "music.note")
+                Label("Songs", systemImage: "music.note.list")
             }
-
+            		
             NavigationStack {
-                Text("Aquí anirà el VideoclipView") //posarem aqui el VideoclipView
-                    //.navigationTitle("Music Videos")
+                //Text("Pantalla de perfil")
+                VideosView()
+                    .navigationTitle("Music Videos")
+                    .navigationBarTitleDisplayMode(.inline)
+                
             }
             .tabItem {
-                //escollim una imatge classica del play, es pot canviar si ens agrada un altre
-                Label("Music Videos", systemImage: "play.rectangle")
+                Label("Music Videos", systemImage: "video")
             }
         }
+        /*
+        .padding()
+         */
     }
+}
+
+#Preview {
+    ContentView()
+        .environment(SongStore())
+        .environment(VideoStore())
 }
 
