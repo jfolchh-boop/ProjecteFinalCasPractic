@@ -1,13 +1,15 @@
 //
-//  ContentView.swift
+//  TrackView.swift
 //  ProjecteFinalCasPractic
 //
-//  Created by Josep Folch on 23/11/26.
+//  Created by Josep Folch on 25/11/26.
 //
+
+
 
 import SwiftUI
 
-struct ContentView: View {
+struct TrackView: View {
     @Environment(TrackStore.self) private var trackStore
     var body: some View {
         VStack {
@@ -34,7 +36,7 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView()
+    TrackView()
         .environment(TrackStore())
 }
 
