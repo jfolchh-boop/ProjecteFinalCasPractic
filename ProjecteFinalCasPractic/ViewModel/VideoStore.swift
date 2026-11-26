@@ -11,16 +11,16 @@ import Foundation
 @Observable
 class VideoStore{
     private(set) var state = APIState.idle
-    /*func getDataFromAPI(){
+    func getDataFromAPI(term: String){
         state = APIState.loading
         Task{
             do{
-                let tracks = try await APIService.fetchData(stringURL: "https://itunes.apple.com/search?term=rosalia&media=music&entity=song&limit=3")
+                let tracks = try await APIService.fetchData(stringURL: "https://itunes.apple.com/search?term=\(term)&media=musicVideo&entity=musicVideo&limit=3")
                 state = .loaded(tracks)
             }catch{
                 state = .error(error.localizedDescription)
             }
         }
         
-    }*/
+    }
 }
